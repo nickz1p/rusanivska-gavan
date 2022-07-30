@@ -8,6 +8,6 @@ def start(m, res=False):
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
-    bot.send_message(-1001480513777, 'Вы написали: ' + message.text)
+    bot.send_message(-1001467716299, 'Вы написали: ' + message.text)
 # Запускаем бота
 bot.polling(none_stop=True, interval=0)
