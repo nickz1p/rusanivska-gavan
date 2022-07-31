@@ -10,7 +10,7 @@ def start(m, res=False):
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
-    bot.send_message(-1001467716299, 'Вы написали: ' + message.text + f' date={message.date}')
+    bot.send_message(-1001467716299, 'Вы написали: ' + message.text + f' date={message.date}' + f' user={message.from.id}' )
    
 # Запускаем бота
 bot.polling(none_stop=True, interval=0)
