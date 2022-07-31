@@ -1,7 +1,4 @@
 import telebot
-from db import database
-
-
 
 # Создаем экземпляр бота
 bot = telebot.TeleBot('5325079329:AAGqWJjwUr-3ywZ3mkmowAzs8cBNidjqvUA')
