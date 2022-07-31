@@ -11,11 +11,11 @@ async def on_shutdown(dispatcher):
     await bot.delete_webhook()
     
 async def save(user_id, text):
-      await database.execute(f"CREATE TABLE messages ("
-f"id SERIAL PRIMARY KEY,"
-f"telegram_id INTEGER NOT NULL,"
-f"text text NOT NULL"
-f");")
+    await database.execute(f"CREATE TABLE messages ("
+                           f"id SERIAL PRIMARY KEY,"
+                           f"telegram_id INTEGER NOT NULL,"
+                           f"text text NOT NULL"
+                           f");")
 
 
     await database.execute(f"INSERT INTO messages(telegram_id, text) "
