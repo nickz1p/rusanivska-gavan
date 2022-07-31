@@ -9,7 +9,7 @@ def start(m, res=False):
     
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
- def handle_text(message):
+def handle_text(message):
     bot.send_message(-1001467716299, 'Вы написали: ' + message.text)
    
 # Запускаем бота
