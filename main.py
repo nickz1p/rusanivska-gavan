@@ -4,19 +4,20 @@ from db import database
 
 async def on_startup(dispatcher):
     await database.connect()
-    await bot.set_webhook(WEBHOOK_URL, drop_pending_updates=True)
-        await database.execute(f"CREATE TABLE messages ("
-f"id SERIAL PRIMARY KEY,"
-f"telegram_id INTEGER NOT NULL,"
-f"text text NOT NULL"
-f");")
-
+  
 
 async def on_shutdown(dispatcher):
     await database.disconnect()
     await bot.delete_webhook()
     
 async def save(user_id, text):
+      await database.execute(f"CREATE TABLE messages ("
+f"id SERIAL PRIMARY KEY,"
+f"telegram_id INTEGER NOT NULL,"
+f"text text NOT NULL"
+f");")
+
+
     await database.execute(f"INSERT INTO messages(telegram_id, text) "
                            f"VALUES (:telegram_id, :text)", values={'telegram_id': user_id, 'text': text})
 
