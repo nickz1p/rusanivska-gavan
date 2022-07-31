@@ -10,8 +10,18 @@ def start(m, res=False):
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
-    userid = message.from.id
-    bot.send_message(-1001467716299, 'Вы написали: ' + message.text + f' date={message.date} user={userid}' )
+if(message is None):
+    bot.send_message(-1001467716299, ' message is None ' )
+    
+if(message.from is None):
+    bot.send_message(-1001467716299, ' message.from is None ' )
+ 
+ 
+ if(message.from.id is None):
+    bot.send_message(-1001467716299, ' message.from.id is None ' )
+    
+    #userid = message.from.id
+    bot.send_message(-1001467716299, 'Вы написали: ' + message.text + f' date={message.date} )
    
 # Запускаем бота
 bot.polling(none_stop=True, interval=0)
