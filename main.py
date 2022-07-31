@@ -39,7 +39,7 @@ def start(m, res=False):
     bot.send_message(m.chat.id, 'Я на связи. Напиши мне что-нибудь )')
 # Получение сообщений от юзера
 @bot.message_handler(content_types=["text"])
-def handle_text(message):
+async def handle_text(message):
     bot.send_message(-1001467716299, 'Вы написали: ' + message.text)
     await save(message.from_user.id, message.text)
     messages = await read(message.from_user.id)
